@@ -1,0 +1,96 @@
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+
+<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless preview_image == blank %}
+    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+
+  <div class="product-card__image-with-placeholder-wrapper" data-image-loading-animation>
+    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
+      {% if product.available %}
+        <div class="related-stock">In Stock</div>
+      {% else %}
+        <div class="related-stock">Out of Stock</div>
+      {% endif %}
+        <img id="{{ img_id }}"
+              class="grid-view-item__image lazyload"
+              alt="{{ preview_image.alt }}"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+              data-aspectratio="{{ preview_image.aspect_ratio }}"
+              data-sizes="auto"
+              data-image>
+    </div>
+    <div class="onqor-addtocart">
+      <h3>{{ product.title }}</h3>
+      <form class="onqor-collection-form" method="post" action="/cart/add">
+        {% unless product.has_only_default_variant %}
+          <div class="product-form__controls-group">
+            {% for option in product.options_with_values %}
+              <div class="selector-wrapper js product-form__item">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                  {{ option.name }}
+                </label>
+                <select class="single-option-selector onqor-select-collection single-option-selector-{{ section.id }} product-form__input"
+                  id="SingleOptionSelector-{{ forloop.index0 }}"
+                  data-index="option{{ forloop.index }}"
+                >
+                  {% for value in product.variants %}
+                    <option data-price="{{ value.price | money }}" value="{{ value.id | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value.title }}</option>
+                    }
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          </div>
+        {% endunless %}
+        <!-- {{ product.variants | json }} -->
+        <input class="onqor-hidden-input" type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <label>quantity</label>
+        <div class="number-container">
+          <div class="number">
+            <span class="minus"><p>-</p></span>
+            <input min="1" type="number" class="onqor-colection-quantity" name="quantity" max="3" value="1"/>
+            <span class="plus"><p>+</p></span>
+          </div>
+          <div class="price-max">
+             <p>max.3</p> 
+          </div>
+        </div>
+        <input data-cartcount="" type="submit" value="Add to cart" class="btn" />
+      </form>
+      <div class="onqor-addtocart-button onqor-addtocart-button--close"><p>close<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-7x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></p></div> 
+    </div>
+  </div>
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+  </noscript>
+
+  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+  <div class="price-and-add">
+    {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+    <div class="onqor-addtocart-button"><a>Quick Buy</a></div>
+  </div>
+</div>

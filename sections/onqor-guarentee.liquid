@@ -1,0 +1,79 @@
+{{ 'onqor.guarentee.scss.css' | asset_url | stylesheet_tag }}
+
+<section class="guarentee">
+	<h2>{{ section.settings.product_card_title }}</h2>
+	<div class="guarentee__container">
+		{% for block in section.blocks %} 
+    {%- if block.settings.link != blank -%}
+      {% assign hoverclass = 'hover-class' %}
+    {%- endif -%}
+			<div class="guarentee__container-item {{ hoverclass }}">
+				<div class="guarentee__container-img" style="background-image: url({{ block.settings.icon_img | img_url: '500x' }});">
+				</div>
+      	<div class="garentee-text">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.content }}</p>
+      	</div>
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}">
+            <svg class="garentee-arrow" style="fill:#010203;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.a{fill:rgba(0,0,0,0);}</style></defs><path class="a" d="M24,0H0V24H24Z"/><path d="M3,11H17.17L13.59,7.41,15,6l6,6-6,6-1.41-1.41L17.17,13H3Z"/></svg>
+          </a>
+        {%- endif -%}
+			</div>
+      <!-- <div class="guarentee__line"></div> -->
+		{% endfor %}
+	</div>
+    <img class="guarentee__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+<!--    <img class="guarentee__drawing-two" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" /> -->
+</section>
+
+{% schema %}
+{
+"name": "Guarentee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_card_title",
+      "label": "title",
+      "default": "product cards"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Guarentee",
+      "name": {
+      },
+      "settings": [
+      	{
+          "id": "icon_img",
+          "type": "image_picker",
+          "label": "icon_img"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "id": "content",
+          "type": "text",
+          "label": "content"
+        },
+        {
+          "id": "link",
+          "type": "page",
+          "label": "page link"
+        }
+      ]
+    }
+  ],
+	"presets": [
+	{
+	"name": "Guarentee",
+	"category": "ADVANCED LAYOUT"
+	}
+]
+}
+{% endschema %}
+
+

@@ -1,0 +1,42 @@
+{{ 'onqor.video.scss.css' | asset_url | stylesheet_tag }}
+{{ 'onqor.video.js' | asset_url | script_tag }}
+
+<section class="onqor-video">
+  <h2>{{ section.settings.video-title }}</h2>
+  <div class="onqor-video__container">
+    {{ section.settings.video-iframe }}
+  </div>
+  <div class="onqor-video__content">
+    <p>{{ section.settings.video-content }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Video section",
+  "settings": [
+    {
+      "id": "video-iframe",
+      "type": "text",
+      "label": "video iframe"
+    },
+    {
+      "id": "video-title",
+      "type": "text",
+      "label": "video title"
+    },
+    {
+      "id": "video-content",
+      "type": "textarea",
+      "label": "video content"
+    }
+  ],
+  "presets": [
+    {
+    "name": "video section",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}
+

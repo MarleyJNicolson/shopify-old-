@@ -1,0 +1,16 @@
+{{ 'onqor.hero-counter.js' | asset_url | script_tag }}
+{{ 'onqor.herocounter-single.scss.css' | asset_url | stylesheet_tag }}
+<div class="countdown-hero-single">
+	<div class="countdown-hero__count-container"  data-countdown="{{ settings.countdown_text }}"> 
+		<div class="countdown-hero__count-container-content">
+		  <h3>{{settings.countdown_title}}</h3>
+		  <div id="countdown" class="countdown"></div>
+		  	<div class='product-dropped'>
+	        	<h3>{{ settings.countdownend_title }}</h3>
+	        </div>
+			    <a class="join-mailing-list" ><svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="18" viewBox="0 0 16.5 18"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M368.577,31.06a.563.563,0,0,1-.562-.563,8.011,8.011,0,0,0-2.361-5.7.563.563,0,0,1,.8-.8,9.131,9.131,0,0,1,2.69,6.5A.563.563,0,0,1,368.577,31.06Zm0,0" transform="translate(-352.639 -22.998)"></path><path class="a" d="M.563,31.079A.563.563,0,0,1,0,30.517a9.126,9.126,0,0,1,2.691-6.5.563.563,0,0,1,.8.8,8.006,8.006,0,0,0-2.362,5.7A.563.563,0,0,1,.563,31.079Zm0,0" transform="translate(0 -23.017)"></path><path class="a" d="M157.48,419.375a2.815,2.815,0,0,1-2.813-2.812.563.563,0,0,1,1.125,0,1.688,1.688,0,0,0,3.375,0,.563.563,0,0,1,1.125,0A2.815,2.815,0,0,1,157.48,419.375Zm0,0" transform="translate(-149.23 -401.375)"></path><path class="a" d="M35.02,77.5H22.645a1.313,1.313,0,0,1-.854-2.31,5.026,5.026,0,0,0,1.791-3.849V69.25a5.25,5.25,0,0,1,10.5,0v2.091a5.025,5.025,0,0,0,1.783,3.844A1.312,1.312,0,0,1,35.02,77.5ZM28.832,65.125a4.129,4.129,0,0,0-4.125,4.125v2.091a6.147,6.147,0,0,1-2.182,4.7.187.187,0,0,0-.068.144.19.19,0,0,0,.188.187H35.02a.19.19,0,0,0,.187-.187.185.185,0,0,0-.066-.143,6.149,6.149,0,0,1-2.184-4.7V69.25A4.129,4.129,0,0,0,28.832,65.125Zm0,0" transform="translate(-20.582 -61.75)"></path><path class="a" d="M219.23,3.375a.563.563,0,0,1-.562-.563V.563a.563.563,0,1,1,1.125,0v2.25A.563.563,0,0,1,219.23,3.375Zm0,0" transform="translate(-210.98)"></path></svg>
+	          <p>Join Mailing List</p>
+	        </a>
+		</div>
+	</div>
+</div>

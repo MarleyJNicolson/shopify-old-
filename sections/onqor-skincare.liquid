@@ -1,0 +1,91 @@
+<!-- Welcome section starts -->
+{{ 'onqor.intro.scss.css' | asset_url | stylesheet_tag }}
+
+
+{% for block in section.blocks %} 
+  {% if block.type == 'product' %}
+    <section class="onqor-intro">
+      <div class="onqor-intro__container">
+        <div class="onqor-intro__col"> 
+          <img src="{{ block.settings.thisisandimage | img_url: '1000x' }}">
+        </div><div class="onqor-intro__col">
+          <div class="onqor-intro__content">
+            <h2>{{ block.settings.intro-title }}</h2>
+            <p>{{ block.settings.intro-conetnt }}</p>
+            {% if block.settings.intro-page-link == blank %}
+            {% else %}
+               <a href="{{ block.settings.intro-page-link }}" target="blank" >{{ block.settings.intro-page-link-text }}</a> 
+            {% endif %}
+          </div>
+        </div>
+      </div>
+       <img class="onqor-intro__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+    </section>
+  {% elsif block.type == 'basic-text-skincare' %}
+    <div class="basic-text-onqor"> 
+      <h3> {{ block.settings.basic-text-title }} </h3>
+      <p>{{ block.settings.basic-text }}</p>
+    </div>
+  {% endif %}
+{% endfor %}
+<!-- Welcome section ends -->
+{% schema %}
+{
+"name": "Skin Care",
+    "blocks": [
+    {
+      "type": "product",
+      "name": {
+      },
+    "settings": [
+        {
+          "type": "text",
+          "id": "intro-title",
+          "label": "intro title",
+          "default": "intro"
+        },
+        {
+          "type": "textarea",
+          "id": "intro-conetnt",
+          "label": "intro content",
+          "default": "intro content"
+        },
+        {
+          "type": "image_picker",
+          "id": "thisisandimage",
+          "label": "intro section image"
+        },
+        {
+          "type": "url",
+          "id": "intro-page-link",
+          "label": "intro page to link to"
+        },
+        {
+          "type": "text",
+          "id": "intro-page-link-text",
+          "label": "intro page to link to"
+        }
+      ]
+    },
+    {
+      "type": "basic-text-skincare",
+      "name": { "sss" : "ssss"
+      },
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "basic-text",
+          "label": "basic text",
+          "default": "intro content"
+        },
+        {
+          "type": "text",
+          "id": "basic-text-title",
+          "label": "basic text title",
+          "default": "intro content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

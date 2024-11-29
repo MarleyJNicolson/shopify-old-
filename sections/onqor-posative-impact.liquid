@@ -1,0 +1,64 @@
+{{ 'onqor.guarentee.scss.css' | asset_url | stylesheet_tag }}
+
+<section class="guarentee impact-stats">
+	<h2>{{ section.settings.impact_title }}</h2>
+	<div class="guarentee__container">
+		{% for block in section.blocks %} 
+			<div class="guarentee__container-item">
+				<h3 class="number-stats">{{ block.settings.stat }}</h3>
+				<h3>{{ block.settings.title }}</h3>
+				<p>{{ block.settings.content }}</p>
+        <a></a>
+			</div>
+      <div class="guarentee__line"></div>
+		{% endfor %}
+	</div>
+    <img class="guarentee__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+   <img class="guarentee__drawing-two" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+</section>
+
+{% schema %}
+{
+"name": "Positive Impact Stats",
+  "settings": [
+    {
+      "type": "text",
+      "id": "impact_title",
+      "label": "title",
+      "default": "Positive Impact Stats"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Guarentee",
+      "name": {
+      },
+      "settings": [
+      	{
+          "id": "stat",
+          "type": "text",
+          "label": "stat"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "id": "content",
+          "type": "text",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+	"presets": [
+	{
+	"name": "Positive Impact Stats",
+	"category": "ADVANCED LAYOUT"
+	}
+]
+}
+{% endschema %}
+
+

@@ -1,0 +1,10 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{ 'onqor.hero-counter.js' | asset_url | script_tag }}
+{{ 'onqor.herocounter-single.scss.css' | asset_url | stylesheet_tag }}
+<div class="countdown-hero-single">
+	<div class="countdown-hero__count-container"  data-countdown="1/9/2021"> 
+		<div class="countdown-hero__count-container-content">
+		  <div id="countdown" class="countdown"></div>
+		</div>
+	</div>
+</div>

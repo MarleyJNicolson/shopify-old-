@@ -1,0 +1,57 @@
+<!-- Welcome section starts -->
+{{ 'onqor.intro.scss.css' | asset_url | stylesheet_tag }}
+
+
+
+<section class="onqor-intro">
+  <div class="onqor-intro__container">
+    <div class="onqor-intro__col"> 
+      <img src="{{ section.settings.thisisandimage | img_url: '1000x' }}">
+    </div><div class="onqor-intro__col">
+      <div class="onqor-intro__content">
+        <h2>{{ section.settings.intro-title }}</h2>
+        <p>{{ section.settings.intro-conetnt }}</p>
+        <a href="{{ section.settings.intro-page-link }}" >More about Zoe</a>
+      </div>
+    </div>
+  </div>
+   <img class="onqor-intro__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+</section>
+
+<!-- Welcome section ends -->
+{% schema %}
+{
+
+"name": "home page intro",
+  "settings": [
+      {
+        "type": "text",
+        "id": "intro-title",
+        "label": "intro title",
+        "default": "intro"
+      },
+      {
+        "type": "textarea",
+        "id": "intro-conetnt",
+        "label": "intro content",
+        "default": "intro content"
+      },
+      {
+        "type": "image_picker",
+        "id": "thisisandimage",
+        "label": "intro section image"
+      },
+      {
+        "type": "url",
+        "id": "intro-page-link",
+        "label": "intro page to link to"
+      }
+    ],
+    "presets": [
+    {
+    "name": "intro section",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

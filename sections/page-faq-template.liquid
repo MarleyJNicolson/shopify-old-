@@ -1,0 +1,128 @@
+{{ 'jquery-ui.min.js' | asset_url | script_tag }}
+<!-- {{ 'jquery-ui.theme.min.css' | asset_url | stylesheet_tag }} -->
+{{ 'onqor.faq.scss.css' | asset_url | stylesheet_tag }}
+{{ 'onqor.faq.js' | asset_url | script_tag }}
+
+
+<!-- {%- assign has_section_separator = false -%}
+
+{%- for block in section.blocks -%}
+  {%- if block.type == 'separator' -%}
+    {%- assign has_section_separator = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- capture faq_content -%}
+  <div class="Faq">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'separator' -%}
+          <h1 class="Faq__Section Heading u-h1" {{ block.shopify_attributes }}>
+            <span class="Anchor" id="block-{{ block.id }}"></span>
+            {{- block.settings.title | escape -}}
+          </h1>
+
+        {%- when 'question' -%}
+          <div class="Faq__Item {% if section.blocks[forloop.index].type == 'separator' or forloop.last %}Faq__Item--lastOfSection{% endif %}" aria-expanded="false" {{ block.shopify_attributes }}>
+            <span class="Faq__Icon">{% include 'icon' with 'select-arrow-right' %}</span>
+
+            <div class="Faq__ItemWrapper">
+              <button class="Faq__Question">{{ block.settings.title | escape }}</button>
+
+              <div class="Faq__AnswerWrapper" aria-hidden="true">
+                <div class="Faq__Answer Rte">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+{%- endcapture -%}
+
+<section data-section-type="faq" data-section-id="{{ section.id }}">
+  <div class="Container">
+    <div class="PageContent {% unless has_section_separator %}PageContent--narrow{% endunless %}">
+      {%- if has_section_separator -%}
+        <div class="PageLayout">
+          <div class="PageLayout__Section PageLayout__Section--secondary PageLayout__Section--sticky hidden-phone">
+            <ol class="FaqSummary">
+              {%- assign faq_separator_count = 0 -%}
+
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'separator' -%}
+                  <li class="FaqSummary__Item {% if faq_separator_count == 0 %}is-active{% endif %}">
+                    <a href="#block-{{ block.id }}" class="FaqSummary__Link" data-offset="80">
+                      <span class="FaqSummary__LinkLabel">{{ block.settings.title | escape }}</span>
+                    </a>
+                  </li>
+
+                  {%- assign faq_separator_count = faq_separator_count | plus: 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </ol>
+          </div>
+
+          <div class="PageLayout__Section">
+            {{- faq_content -}}
+          </div>
+        </div>
+      {%- else -%}
+        {{- faq_content -}}
+      {%- endif -%}
+    </div>
+  </div>
+</section> -->
+<section class="faq-section" >
+  <!-- <h1>FAQs</h1> -->
+  <h1>{{ page.title }}</h1>
+
+  <div class="accordian" >
+    {%- for block in section.blocks -%}
+      <h3><span>{{ block.settings.title }}</span><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-chevron-down fa-w-14 fa-7x"><path fill="currentColor" d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z" class=""></path></svg></h3>
+      <div class="accordian__content" >{{ block.settings.answer }}</div>
+    {%- endfor -%}
+  </div>
+  <img class="faq-section__drawing-one"  src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+  <img class="faq-section__drawing-two" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+  <img class="faq-section__drawing-three" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "separator",
+      "name": "Section separator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Default"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

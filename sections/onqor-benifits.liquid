@@ -1,0 +1,70 @@
+{{ 'onqor.benifits.scss.css' | asset_url | stylesheet_tag }}
+<div class="this-helps">
+  <div class="this-helps__container">
+    <h2>This product helps with:</h2>
+    <div class="this-helps__container-inside">
+      {% for block in section.blocks %} 
+        {% if product.handle == block.settings.product %}
+            <div class="this-helps__item">
+             <!--  <div class="this-help__img" style="background-image: url({{ block.settings.icon_img | img_url: '500x' }});" ></div> -->
+              <div class="this-helps__content">
+                <h4>{{ block.settings.title }}</h4>
+                <p>{{ block.settings.content }}</p>
+              </div>
+            </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <img class="this-helps__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+  <img class="this-helps__drawing-two" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+</div>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_card_title",
+      "label": "title",
+      "default": "product cards"
+    }
+  ],
+  "blocks":[
+      {
+        "type": "Benefits",
+        "name": {
+        },
+        "settings": [
+          {
+            "id": "icon_img",
+            "type": "image_picker",
+            "label": "icon_img"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "id": "content",
+            "type": "text",
+            "label": "content"
+          },
+          {
+            "id": "product",
+            "type": "product",
+            "label": "product"
+          }
+        ]
+      }
+   ],
+	"presets": [
+  	{
+  	"name": "product cards",
+  	"category": "ADVANCED LAYOUT"
+  	}
+  ]
+}
+{% endschema %}

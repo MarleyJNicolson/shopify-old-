@@ -1,0 +1,23 @@
+{{ 'onqor.review.scss.css' | asset_url | stylesheet_tag }}
+<div class="onqor-review">
+  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
+</div>
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      	"type": "text",
+      	"id": "product_card_title",
+      	"label": "title",
+      	"default": "product cards"
+    	}
+  	],
+	"presets": [
+  	{
+  	"name": "Reviews",
+  	"category": "ADVANCED LAYOUT"
+  	}
+  ]
+}
+{% endschema %}

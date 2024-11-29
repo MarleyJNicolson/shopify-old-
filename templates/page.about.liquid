@@ -1,0 +1,28 @@
+<!-- {{ 'onqor.page.scss.css' | asset_url | stylesheet_tag }}
+<div class="page-width onqor-page-default">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% section 'rich-text' %}
+{% section 'video' %}
+{% section 'text-with-image' %}
+{% section 'cta' %}
+
+ -->
+<div class='about-section'>
+	<h1 style="margin: 50px auto; font-size: 55px; text-align: center;">{{ page_title }}</h1>
+  {% section 'onqor-about-skincare' %}
+  {% section 'onqor-before-after' %}
+	{% section 'onqor-guarentee' %}
+	{% section 'onqor-text-link' %}
+	{% section 'onqor-social' %}
+</div>

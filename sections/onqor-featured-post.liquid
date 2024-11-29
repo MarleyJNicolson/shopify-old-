@@ -1,0 +1,24 @@
+{{ 'onqor.featured-post.scss.css' | asset_url | stylesheet_tag }}
+
+<section class="featured-post">
+    {% assign article = articles[section.settings.blog] %}
+    <div class="featured-post__container" style="background-image:url({{ article.image.src | img_url: '1000x' }});">
+      <h2>{{ article.title }}</h2>
+      <div class="featured-post__shadow"></div>
+      <a href="{{ article.url }}"></a>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Featured post",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "article",
+      "label": "Blog"
+    }
+  ]
+}
+{% endschema %}
+

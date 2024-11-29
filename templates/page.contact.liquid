@@ -1,0 +1,60 @@
+{{ 'onqor.contact.scss.css' | asset_url | stylesheet_tag }}
+<div class="page-width onqor-contact-section">
+  <img class="contact__drawing-two" src="{{ 'Citrus.png' | asset_img_url: '800x' }}" />
+  <img class="contact__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '800x' }}" />
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+
+      </div>
+
+      {% if page.content.size > 0 %}
+        <div class="rte">
+          <h2>Contact</h2>
+          <p>For all feedback and enquiries, please complete the enquiries form on this page.</p>
+        </div>
+      {% endif %}
+
+      <div class="contact-form form-vertical">
+        {%- assign formId = 'ContactForm' -%}
+        {% form 'contact', id: formId %}
+        {% include 'form-status', form: form, form_id: formId %}
+          <input placeholder="Name" type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              <input
+                type="email"
+                id="{{ formId }}-email"
+                name="contact[email]"
+                autocorrect="off"
+                placeholder="Email"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                aria-required="true"
+                {%- if form.errors contains 'email' -%}
+                  class="input--error"
+                  aria-invalid="true"
+                  aria-describedby="{{ formId }}-email-error"
+                {%- endif -%}
+                >
+              {%- if form.errors contains 'email' -%}
+                <span id="{{ formId}}-email-error" class="input-error-message">
+                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                  {% include 'icon-error' %}
+                  <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                </span>
+              {%- endif -%}
+
+          <input placeholder="Phone number" type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          <textarea placeholder="Message" rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        <div class="rowrow"> 
+          <div>
+            <p>​We endeavour to get back to you within <span>3 working days.</span></p>
+          </div>
+         <div class="contact-submit">
+        <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+         </div>
+        <div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+{{ 'onqor.home-blogs.scss.css' | asset_url | stylesheet_tag }}
+
+<section class="onqor-home-blogs">
+  <div class="onqor-home-blogs__title">
+    <h2>Blog Posts</h2>
+    <a class="all-blogs" href="/blogs">
+      See All
+    </a>
+  </div>
+  <div class="onqor-home-blogs__container">
+     <div class="onqor-home-blogs__container-slider">
+
+      {% for block in section.blocks %} 
+        {% assign article = articles[block.settings.featured_article] %}
+        <a class="onqor-home-blogs__items" href="{{ article.url }}">
+          <div class="onqor-home-blogs__img">
+            <img src="{{ article.image | img_url: '300x' }}" />
+          </div>
+          <!-- <p class="onqor-home-blogs__time">{{ article.published_at }}</p> -->
+          <div class="onqor-home-blogs__content">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.content | strip_html | truncate: 75 }}</p>
+          </div>
+        </a>
+
+      {% endfor %}
+    </div>
+  </div>
+
+<!--   {{ blog.articles | json }}
+  {%- for article in blog.articles -%}
+    <li>
+
+      <h2>
+        <a href="{{ article.url }}">
+          {{ article.image | json }}
+            <img src="{{ article.image | img_url: '300x300' }}" alt="">
+          {{ article.title }}
+        </a>
+      </h2>
+
+      {%- if section.settings.blog_show_author -%}
+        <span>
+          By {{ article.author }}
+        </span>
+      {%- endif -%}
+
+      {%- if section.settings.blog_show_date -%}
+        <span>
+          {{ article.published_at | time_tag: format: 'month_day_year' }}
+        </span>
+      {%- endif -%}
+  }
+
+       <p>
+        {%- if article.excerpt.size > 0 -%}
+          {{ article.excerpt }}
+        {%- else -%}
+          {{ article.content | strip_html | truncate: 150 }}
+        {%- endif -%}
+      </p> 
+
+     {%- if article.tags.size > 0 -%}
+        <ul>
+          {{ 'blogs.article.posted_in' }}
+            <li>
+              {%- for tag in article.tags -%}
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+              {%- endfor -%}
+            </li>
+        </ul>
+      {%- endif -%} 
+
+
+    </li>
+  {%- endfor -%} -->
+
+</section>
+{% schema %}
+{
+  "name": "onqor Blog pages",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": {
+      },
+      "settings": [
+        {
+         "type": "article",
+         "id": "featured_article",
+         "label": "Article to feature on the home page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "onqor blogs",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

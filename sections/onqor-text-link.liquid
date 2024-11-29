@@ -1,0 +1,96 @@
+{{ 'onqor.img-with-text.scss.css' | asset_url | stylesheet_tag }}
+
+<!-- {% assign i = 0 %} -->
+
+{% assign i = 0 | plus:1 %}
+
+<!-- {{ i | json }} -->
+
+<section class="Section onqor-link-text onqor-img-with-text" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="image-with-text-block">
+  {% for block in section.blocks %}
+    <div class="onqor-img-with-text__content-container" style="background-image: url({{ block.settings.charity-img | img_url: '1000x' }})">
+    <!--   <div class="over-line"></div>
+   --><h2 class="text-link-title" >{{ block.settings.title }}</h2>
+      <div class="onqor-img-with-text__content-container-inside">
+        <div class="onqor-img-with-text__content">
+          {{ block.settings.content }}
+        </div>
+      </div>
+      {%- if block.settings.button_label != blank -%}
+        <div class="onqor-button-container">
+          <a target="_blank" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+  {% endfor %}
+  <img class="text-link-title__drawing-one" src="{{ 'Citrus.png' | asset_img_url: '500x' }}" />
+</section>
+<script type="text/javascript">
+  //For Firefox we have to handle it in JavaScript 
+  var vids = $("video"); 
+  $.each(vids, function(){
+         this.controls = false; 
+  }); 
+  //Loop though all Video tags and set Controls as false
+
+  $("#{{ section.settings.title | remove: " " }}").click(function(event) {
+    //console.log(this); 
+    if(!event.detail || event.detail == 1){
+      if (this.paused) {
+        this.play();
+        $('.video-play-button').fadeOut();
+      } else {
+        this.pause();
+        $('.video-play-button').fadeIn();
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Onqor text with link",
+  "blocks":[
+    {
+      "type": "text-with-link",
+      "name": {
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your story"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "image_picker",
+          "id": "charity-img",
+          "label": "charity img"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "text with link",
+    "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

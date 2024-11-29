@@ -1,0 +1,33 @@
+<div id="about-cta">
+    <div class="cta-content">
+      <h1> {{ section.settings.text-box }} </h1>
+      <p> {{ section.settings.text }} </p>
+      <button> {{ section.settings.btn }} </button>
+    </div>
+  </div>
+  
+  {% schema %}
+    {
+      "name": "CTA",
+      "settings": [
+        {
+            "id": "text-box",
+            "type": "text",
+            "label": "Heading",
+            "default": "Title"
+        },
+        {
+            "id": "text",
+            "type": "richtext",
+            "label": "Add custom text below",
+            "default": "<p>Add your text here</p>"
+        },
+        {
+            "id": "btn",
+            "type": "text",
+            "label": "Add custom text below",
+            "default": "Button"
+        }
+      ]
+    }
+  {% endschema %}
