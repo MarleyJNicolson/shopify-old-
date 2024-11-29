@@ -1,0 +1,200 @@
+.onqor-product-cards{
+	min-height: 250px;
+	width: 100%;
+	margin-top: 100px;
+    text-align: center;
+	.onqor-product-cards__container{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		vertical-align: middle;
+		flex-wrap: wrap;
+		max-width: 1000px;
+		width: 95%;
+		margin: 0 auto;
+		justify-content: space-between;
+	}
+	.onqor-product-cards__item{
+	    max-width: 284px;
+	    width: 32%;
+	    height: 450px;
+	    position: relative;
+	    overflow: hidden;
+	    border-radius: 10px;
+	    padding: 20px;
+	    cursor: pointer;
+	    svg path{
+			fill:#fff;
+		}
+	}
+	a,h3{
+		z-index: 2;
+	}
+	.description{
+		max-width: 394px;
+		width: 95%;
+		color:#010203;
+		margin: 0 auto;
+		margin-bottom: 30px;
+	}
+	.onqor-product-cards__item-inside{
+		width: 100%;
+	    height: 100%;
+	    display: flex;
+	    align-items: center;
+	    vertical-align: middle;
+	    position: relative;
+	    justify-content: center;
+	    height: 80%;
+	    flex-direction: column;
+	   	h3{
+			font-size: 55px;
+		    font-family: quiche-sans, sans-serif;
+		    max-width: 290px;
+		    text-align: center;
+		    color: #fff;
+		    font-weight: 400;
+		    line-height: 45px;
+		}
+		p{
+			transform: translateY(-40px);
+			transition: transform 0.7s;
+		}
+	}
+	a{
+		width: 80%;
+	    margin: 0 auto;
+	    height: 50px;
+	    background: inherit;
+	    background-attachment: fixed;
+	    position: relative;
+	    overflow: hidden;
+	    display: block;
+	    backdrop-filter: blur(39px);
+		display: flex;
+	    align-items: center;
+	    vertical-align: middle;
+	    justify-content: center;
+		/*background-color: #61616180;*/
+		p{
+			color:#fff;
+		}
+		svg{
+			fill:#fff;
+			margin-right: 10px;
+		}
+	}
+	p{
+		z-index: 2;
+    	color: #fff;
+	}
+	a:before{
+	    content: "";
+	    display: block;
+	    box-shadow: inset 0 0 2000px #ffffffa6;
+	    width: 120%;
+	    height: 120%;
+	    position: absolute;
+	    background: inherit;
+	    background-attachment: fixed;
+	    filter: blur(10px);
+	    left: -10%;
+	    top: -10%;
+	}
+	.onqor-product-cards__item:hover{
+		img{
+			transform: scale(1);
+			transition: transform 0.7s;
+		}
+		.onqor-product-cards__item-inside p{
+			transform: translateY(0px);	
+			transition: transform 0.7s;
+		}
+		.onqor-product-cards__buttons{
+			bottom:0px;
+			transition: bottom 0.7s;
+		}
+	}
+	a:nth-of-type(1){
+		border-radius: 10px 10px 0px 0px;
+	}
+	a:nth-of-type(2){
+		border-radius: 0px 0px 10px 10px;
+		border-top: 1px solid #696969ad;
+	}
+	.onqor-product-cards__buttons{
+	    width: 100%;
+	    height: 127px;
+	    position: absolute;
+	    left: 0px;
+	    bottom: -130px;
+	    transition: bottom 0.7s;
+	}
+	img{
+	    width: 75%;
+	    height: auto;
+	    z-index: 1;
+	   	transform: scale(1.3);
+	   	transition: transform 0.7s;
+	}
+	.onqor-product-cards__background-image{
+		height: 100%;
+	    width: 100%;
+	    position: absolute;
+	    top:0px;
+	    z-index: 0;
+	    background-size: cover;
+	    top: 0px;
+    	left: 0px;
+	}
+	.onqor-product-cards--see-all-cards{
+		margin-top: 40px;
+    	color: #010203;
+		&:before{
+			content:'';
+			display: none;
+		}
+		svg{
+			color:#656565 !important;
+			margin-left: 10px;
+		}
+	}
+}
+
+@media only screen and (max-width: 840px) {
+	.onqor-product-cards .onqor-product-cards__container {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    vertical-align: middle;
+	    flex-wrap: wrap;
+	    max-width: 1200px;
+	    width: 95%;
+	    margin: 0 auto;
+	    justify-content: space-between;
+	}
+	.onqor-product-cards .onqor-product-cards__item {
+	    max-width: 363px;
+	    width: 95%;
+	    height: 500px;
+	    position: relative;
+	    overflow: hidden;
+	    border-radius: 10px;
+	    padding: 20px;
+	    margin-bottom: 30px;
+	}
+	.onqor-product-cards__item{
+		img{
+			transform: scale(1);
+			transition: transform 0.7s;
+		}
+		.onqor-product-cards__item-inside p{
+			transform: translateY(0px);	
+			transition: transform 0.7s;
+		}
+		.onqor-product-cards__buttons{
+			bottom:0px;
+			transition: bottom 0.7s;
+		}
+	}
+}

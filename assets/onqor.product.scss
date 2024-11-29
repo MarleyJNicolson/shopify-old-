@@ -1,0 +1,54 @@
+.main-content{
+	padding-top: 0px;
+}
+.countdown-hero{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	background-color: #eee;
+	position: relative;
+	top:0px;
+	.countdown-hero__count-container{
+		width: 50%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		vertical-align: middle;
+		justify-content: center;
+		min-height: 100vh;
+		/*padding: 220px 0px;*/
+	}
+	.countdown-hero__products{
+	    width: 50%;
+	    height: 100%;
+	    min-height: 100vh;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center
+	}
+	.countdown-hero__count-container-content{
+		max-width: 506px;
+	    width: 95%;
+	    min-height: 200px;
+	    background-color: #fff;
+	}
+	.countdown-hero__slider{
+		max-width: 506px;
+	    width: 95%;
+	    height: 600px;
+	    height: 400px;
+	}
+	.countdown-hero__products-item{
+		height: 100%;
+	}
+	
+	.slick-dragable{
+		height: 100%;
+	}
+	.slick-track{
+		height: 100%;
+	}
+	.slick-list{
+		height: 100%;
+	}
+}

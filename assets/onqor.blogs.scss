@@ -1,0 +1,128 @@
+.grid--blog {
+    margin-bottom: -55px;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    .grid__item{
+		width: 48%;
+		max-width: 450px;
+	    display: flex;
+	    flex-direction: row-reverse;
+	    padding: 0px;
+	    margin-bottom: 65px;
+	    height: 160px;
+	    justify-content: center;
+	    time{
+	    	color: #959595;
+    		font-size: 14px;
+	    }
+    }
+}
+.grid--blog.grid::after{
+	content: '';
+	position:absolute;
+	display: none !important;
+	clear: both;
+}
+/*.grid--blog{
+	padding: 0px 20px;
+}*/
+.onqro-img-container{
+	/*width: 50%;*/
+	.onqor-blog-img{
+		height: 159px;
+	    position: relative;
+	    width: 166px;
+	    border-radius: 2px;
+	    overflow: hidden;
+    	img{
+    		display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+    	}
+	}
+}
+.pagination{
+	margin-bottom: 100px;
+}
+.template-blog .page-width{
+	max-width: 970px;
+	padding: 0px;
+}
+.onqor-latest-articles{
+	text-align: left;
+    font-family: quiche-sans, sans-serif;
+    font-size: 28px;
+}
+.onqor-article-meta{
+	width: 50%;
+    height: 100%;
+    position: relative;
+    padding: 20px 0px;
+	h3{
+		font-size: 18px;
+		width: 85%;
+	}
+	.article__author, .article__date {
+	    bottom: 20px;
+	    position: absolute;
+	    margin: 0px;
+	}
+}
+.onqor-post-link{
+	position: absolute;
+    bottom: 0px;
+    color: #010203;
+    svg{
+    	width: 18px;
+    	transform: translateY(8px);
+    }
+}
+@media only screen and (max-width: 900px) {
+	.grid--blog .grid__item{
+		width: 47% !important;
+	}
+	.article__link {
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    width: 100%;
+	    -webkit-flex-direction: column;
+	    -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    justify-content: cce;
+	    text-align: center;
+	    position: relative;
+	}
+	.onqro-img-container .onqor-blog-img {
+	    height: 159px;
+	    position: absolute;
+	    width: 166px;
+	    border-radius: 2px;
+	    overflow: hidden;
+	    right: 0px;
+	}
+	.template-blog .page-width {
+	    max-width: 970px;
+	    padding: 0px;
+	    width: 95%;
+	}
+	.onqor-article-meta {
+	    width: 97%;
+	    height: 100%;
+	    position: relative;
+	    padding: 20px 0px;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.grid--blog .grid__item{
+		 width: 100% !important;
+	    margin: 30px auto;
+	}
+}

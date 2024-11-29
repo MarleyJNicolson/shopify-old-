@@ -1,0 +1,63 @@
+.template-customers-register,.template-customers-login{
+	.main-content{
+	    padding-top: 80px !important;
+	    min-height: calc(100vh - 80px);
+	    display: flex;
+	    flex-direction: column;
+	}
+	.page-width{
+	    max-width: 1200px;
+	    width: 95%;
+	    h1{
+	    	text-align: left !important;
+	    	margin-top: 20px;
+		    font-family: quiche-sans, sans-serif;
+		    font-weight: bold;
+	    }
+	}
+	.join-the-gang{
+		margin-bottom: 20vh;
+	}
+	p,label,input{
+		font-family: atten-new, sans-serif !important;
+	}
+	.countdown-hero__drawing-one,.countdown-hero__drawing-two{
+		position: absolute;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.countdown-hero__drawing-one{
+		position: absolute;
+	    z-index: 0;
+	    bottom: 0px;
+	    left: -223px;
+	    width: 500px;
+	    transform: rotate(74deg);
+	}
+	.countdown-hero__drawing-two{
+		position: absolute;
+	    z-index: 0;
+	    top: 0px;
+	    right: -223px;
+	    width: 500px;
+	    transform: rotate(0deg);
+	}
+	label{
+		display: none;
+	}
+	input{
+		height: 50px;
+    	border-radius: 5px;
+    	border: solid #dedede 2px;
+	}
+	.btn{
+		border: none;
+	    max-width: 180px;
+	    width: 95%;
+	    height: 48px;
+	    background-color: #be8884;
+	}
+	.lets-sign-up{
+		font-weight: bold;
+	}
+}

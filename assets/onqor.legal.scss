@@ -1,0 +1,83 @@
+/*.onqor-page-default{
+	h1{
+		font-family: quiche-sans, sans-serif;
+	}
+}
+
+@media (max-width: 1400px) {
+	.footerform__drawing-one, .footerform__drawing-two, .faq__drawing-one, .guarentee__drawing-one, .guarentee__drawing-two {
+  		display: none;
+	}	
+}
+
+@media (min-width: 1400px) {
+   .faq__drawing-one {
+     	transform: translateX(-250px) translateY(-50px) scale(1.3);
+   }	
+}                                
+
+@media (min-width: 1920px) {
+ 	.page-width {
+     	margin-left: 7% !important; 
+    }
+}
+
+@media (max-width: 1920px) {
+ 	.page-width {
+     	margin-left: 7% !important; 
+    }
+}
+
+.page-width {
+  	max-width: 900px !important
+}   
+
+.faq-link, .footer-form {
+ 	display: none; 
+}
+
+.section-header {
+ 	padding-top: 5%; 
+}
+
+.garentee-arrow {
+ 	display: none;
+}
+
+
+.guarentee__drawing-two {
+ 	display: none;
+}
+
+.garentee_line {
+ 	height: 10px;
+  	width: 1px;
+  	color: black;
+}*/
+
+
+.legal-section{
+  max-width: 900px;
+  width: 95%;
+  margin-top: 50px;
+  .legal-section__link{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    a{
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    span{
+      font-size: 20px;
+    }
+    svg{
+      width: 6px;
+    }
+  }
+}
+

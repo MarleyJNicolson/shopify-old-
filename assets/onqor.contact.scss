@@ -1,0 +1,244 @@
+/*.onqor-contact-section{
+	h1{
+		text-align: left;
+		margin-top: 50px;
+		font-family: quiche-sans, sans-serif;
+	}
+	label{
+		display: none;
+	}
+	input{
+		height: 50px;
+	    border-radius: 5px;
+	    border: solid #dedede 2px;
+	    font-family: atten-new, sans-serif;
+	}
+	input::placeholder{
+		font-family: atten-new, sans-serif;
+		font-size: 14px !important;
+		color:#959595 !important;
+	}
+	textarea::placeholder{
+		font-family: atten-new, sans-serif !important;
+		font-size: 14px !important;
+		color:#959595 !important; 
+	}
+	.rte p{
+		width: initial;
+		max-width: inherit;
+	}
+	p{
+		font-family: atten-new, sans-serif !important;
+		max-width: 239px;
+		span{
+			font-weight: bold;
+		}
+	}
+	.section-header {
+	    margin-bottom: 10px;
+	}
+	.contact-submit{
+		max-width: 400px;
+	    display: flex;
+	    flex-direction: row;
+	    input{
+	    	width: 119px;
+	    	height: 51px;
+	    	background-color: #BE8784;
+	    }
+	}
+	.countdown-hero__drawing-one,.countdown-hero__drawing-two{
+		position: absolute;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.countdown-hero__drawing-one{
+		position: absolute;
+	    z-index: 0;
+	    bottom: 0px;
+	    left: -223px;
+	    width: 500px;
+	    transform: rotate(74deg);
+	}
+	.countdown-hero__drawing-two{
+		position: absolute;
+	    z-index: 0;
+	    top: 0px;
+	    right: -223px;
+	    width: 500px;
+	    transform: rotate(0deg);
+	}
+}*/
+
+.onqor-contact-section{
+	h1{
+		text-align: left;
+		margin-top: 50px;
+		font-family: quiche-sans, sans-serif;
+	}
+	label{
+		display: none;
+	}
+	input{
+		height: 50px;
+	    border-radius: 5px;
+	    border: solid #dedede 2px;
+	    font-family: atten-new, sans-serif;
+	}
+	input::placeholder{
+		font-family: atten-new, sans-serif;
+		font-size: 14px !important;
+		color:#959595 !important;
+	}
+	textarea::placeholder{
+		font-family: atten-new, sans-serif !important;
+		font-size: 14px !important;
+		color:#959595 !important; 
+	}
+	.rte p{
+		width: initial;
+		max-width: inherit;
+	}
+	p{
+		font-family: atten-new, sans-serif !important;
+		max-width: 239px;
+		span{
+			font-weight: bold;
+		}
+	}
+	.section-header {
+	    margin-bottom: 10px;
+	}
+	.contact-submit{
+		max-width: 400px;
+	    display: flex;
+	    flex-direction: row;
+	    input{
+	    	width: 119px;
+	    	height: 51px;
+	    	background-color: #BE8784;
+	    }
+	}
+	.countdown-hero__drawing-one,.countdown-hero__drawing-two{
+		position: absolute;
+		z-index: 0;
+	}
+	.countdown-hero__drawing-one{
+		position: absolute;
+	    z-index: 0;
+	    bottom: 0px;
+	    left: -223px;
+	    width: 500px;
+	    transform:  translateX(-350px);
+	}
+	.countdown-hero__drawing-two{
+		position: absolute;
+	    z-index: 0;
+	    top: 0px;
+	    right: -23px;
+	    width: 500px;
+      	transform: rotate(-20deg) !important;
+	}
+}
+
+.onqor-page-default{
+	h1{
+		font-family: quiche-sans, sans-serif;
+	}
+}
+
+.page-width {
+  	max-width: 900px !important
+}   
+
+.faq-link, .footer-form {
+ 	display: none; 
+}
+
+.section-header {
+ 	padding-top: 5%; 
+}
+
+.garentee-arrow {
+ 	display: none;
+}
+
+.garentee_line {
+ 	height: 10px;
+  	width: 1px;
+  	color: black;
+}
+
+.faq-section h1 {
+ 	display: none;  
+}
+
+div.rte {
+ text-align: center; 
+  max-width: 500px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.rte h2 {
+	margin-bottom: 5px;
+}
+.page-width  {
+  max-width: 600px !important;
+}
+
+input:focus {
+	border-color: #BE8784 !important;;
+  	outline-color: #BE8784 !important;
+}
+
+.rowrow {
+ 	display: flex;
+  	flex-direction: column;
+  	text-align: center;
+  	align-items: center;
+  	justify-content: center;
+  	padding-bottom: 40px;
+}
+
+.contact-submit {
+ 	padding-top: 20px; 
+}
+
+.contact-submit input {
+  	max-width: 500px !important;
+}
+
+@media (min-width: 520px) {
+ 	 .contact-submit input {
+  		width: 500px !important
+  }
+}
+
+.countdown-hero__drawing-one, , .faq__drawing-one, .footerform__drawing-one {
+  display: none;
+}
+
+textarea:focus {
+  border-color: #BE8784 !important;;
+  outline-color: #BE8784 !important;
+}
+
+.hero-two {
+ 	transform:  translateY(350px) scale(1.2) rotate(0) !important; 
+    	position: absolute;
+	    z-index: 0;
+	    top: 0px;
+	    left: -200%;
+	    width: 500px;
+      	transform: rotate(240deg);
+}
+
+@media (max-width: 1100px) {
+  	.countdown-hero__drawing-two{
+          display: none;
+	}
+}
+

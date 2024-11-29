@@ -1,0 +1,25 @@
+<svg id="Search" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <rect id="Tap_Area" data-name="Tap Area" width="44" height="44" rx="4" fill="none"/>
+  <g id="loupe" transform="translate(10 10)">
+    <g id="Group_145" data-name="Group 145" transform="translate(14.648 9.277)">
+      <g id="Group_144" data-name="Group 144">
+        <path id="Path_383" data-name="Path 383" d="M300.488,190a.488.488,0,1,0,.488.488A.488.488,0,0,0,300.488,190Z" transform="translate(-300 -190)"/>
+      </g>
+    </g>
+    <g id="Group_147" data-name="Group 147">
+      <g id="Group_146" data-name="Group 146">
+        <path id="Path_384" data-name="Path 384" d="M24.428,21.666,17.91,15.148a9.678,9.678,0,0,0,1.621-5.383,9.766,9.766,0,1,0-9.766,9.766,9.678,9.678,0,0,0,5.383-1.621l1.8,1.8h0l4.715,4.715a1.953,1.953,0,1,0,2.762-2.762Zm-9.509-4.785h0a8.8,8.8,0,1,1,1.963-1.963A8.832,8.832,0,0,1,14.919,16.881Zm1.024.443a9.8,9.8,0,0,0,1.381-1.381l1.385,1.385a11.852,11.852,0,0,1-1.381,1.381Zm7.794,6.413a.976.976,0,0,1-1.381,0L18.021,19.4A12.831,12.831,0,0,0,19.4,18.021l4.336,4.336a.976.976,0,0,1,0,1.381Z"/>
+      </g>
+    </g>
+    <g id="Group_149" data-name="Group 149" transform="translate(1.953 1.953)">
+      <g id="Group_148" data-name="Group 148">
+        <path id="Path_385" data-name="Path 385" d="M47.813,40a7.813,7.813,0,1,0,7.813,7.813A7.821,7.821,0,0,0,47.813,40Zm0,14.648a6.836,6.836,0,1,1,6.836-6.836A6.844,6.844,0,0,1,47.813,54.648Z" transform="translate(-40 -40)"/>
+      </g>
+    </g>
+    <g id="Group_151" data-name="Group 151" transform="translate(9.277 3.906)">
+      <g id="Group_150" data-name="Group 150">
+        <path id="Path_386" data-name="Path 386" d="M195.96,83.763A5.869,5.869,0,0,0,190.488,80a.488.488,0,0,0,0,.977,4.916,4.916,0,0,1,4.56,3.137.488.488,0,1,0,.912-.35Z" transform="translate(-190 -80)"/>
+      </g>
+    </g>
+  </g>
+</svg>
